@@ -1,0 +1,27 @@
+{
+  "hosting": {
+	"headers" : [{
+		"source" : "**/*.@(js)",
+		"headers": [{
+			"key" : "Cache-Control",
+			"value" : "no-cache, no-store"
+			}]
+		}],
+    "public": "public",
+	"rewrites": [{
+	/* your C2 must have a URI . In this case I am using /api/" */
+		"source": "/api/**",
+		"function": "app",
+		"run":{
+			"region" : "asia-east2"
+			}
+		}],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  "functions": {
+  }
+}
